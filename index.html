@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Family Dating Ideas</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Family Dating Ideas</h1>
+
+      <nav class="site-nav" aria-label="Season navigation">
+        <a class="nav-link" href="spring.html">Spring</a>
+        <a class="nav-link" href="summer.html">Summer</a>
+        <a class="nav-link" href="fall.html">Fall</a>
+        <a class="nav-link" href="winter.html">Winter</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-label="Homepage carousel">
+      <div class="carousel" data-carousel>
+        <button class="carousel-btn" type="button" aria-label="Previous photo" data-carousel-prev>
+          &#x2039;
+        </button>
+
+        <figure class="carousel-frame">
+          <img
+            class="carousel-img"
+            data-carousel-img
+            src="images/family1.jpg"
+            alt="Family photo"
+            loading="lazy"
+          />
+        </figure>
+
+        <button class="carousel-btn" type="button" aria-label="Next photo" data-carousel-next>
+          &#x203A;
+        </button>
+
+        <div class="carousel-dots" role="tablist" aria-label="Photo selector" data-carousel-dots>
+          <!-- JS will auto-generate dots -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Placeholder section (no actual sentences) -->
+    <section class="grid" aria-label="Homepage content placeholders">
+      <article class="card"></article>
+      <article class="card"></article>
+      <article class="card"></article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="footer-label">Yuki Ikeda</span>
+    </div>
+  </footer>
+</body>
+</html>
