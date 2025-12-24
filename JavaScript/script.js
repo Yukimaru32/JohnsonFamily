@@ -9,8 +9,8 @@
   
     // Update these paths to match your real photos
     const images = [
-      "images/family1.jpg",
-      "images/family2.jpg",
+      "images/Johnsonphoto1.jpg",
+      "images/Johnsonphoto2.jpg",
       "images/family3.jpg",
     ];
   
