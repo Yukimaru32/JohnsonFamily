@@ -278,6 +278,23 @@
     font-size: 13px;
   }
   .idea-link:hover { transform: translateY(-1px); }
+
+  .season-hero {
+    width: 100%;
+    margin: 20px 0 28px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: #fff;
+    box-shadow: var(--shadow);
+  }
+  
+  .season-hero-img {
+    width: 60%;
+    height: 60%;           /* adjust height here */
+    object-fit: cover;       /* fills frame nicely */
+    display: block;
+  }
   
   
   @media (max-width: 900px) {
