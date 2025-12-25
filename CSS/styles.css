@@ -207,6 +207,66 @@
     object-fit: cover;        /* fills the frame, crops edges if needed */
     display: block;
   }
+  .weather {
+    padding: 16px;
+  }
+  
+  .weather-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .weather-title {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .weather-sub {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  
+  .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+  }
+  
+  .weather-day {
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.35);
+    border-radius: 14px;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .weather-dow {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 6px;
+  }
+  
+  .weather-temp {
+    font-size: 14px;
+    margin: 0;
+  }
+  
+  .weather-code {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 6px 0 0;
+  }
+  
+  @media (max-width: 900px) {
+    .weather-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .weather-grid { grid-template-columns: repeat(2, 1fr); }
+  }
   
   /* Responsive */
   @media (max-width: 900px) {

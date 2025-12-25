@@ -68,4 +68,72 @@
     // Init
     imgEl.src = images[index];
     renderDots();
+
+    async function loadSLCForecast() {
+      const grid = document.querySelector("[data-weather-grid]");
+      const updatedEl = document.querySelector("[data-weather-updated]");
+      if (!grid || !updatedEl) return;
+    
+      // Salt Lake City coordinates
+      const lat = 40.7608;
+      const lon = -111.8910;
+    
+      // Open-Meteo (no key required)
+      const url =
+        "https://api.open-meteo.com/v1/forecast" +
+        `?latitude=${lat}&longitude=${lon}` +
+        "&daily=temperature_2m_max,temperature_2m_min,weathercode" +
+        "&temperature_unit=fahrenheit" +
+        "&timezone=America%2FDenver";
+    
+      try {
+        updatedEl.textContent = "Loading…";
+    
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`Weather request failed: ${res.status}`);
+    
+        const data = await res.json();
+    
+        const days = data.daily.time;
+        const maxT = data.daily.temperature_2m_max;
+        const minT = data.daily.temperature_2m_min;
+        const codes = data.daily.weathercode;
+    
+        const dow = (iso) =>
+          new Date(iso + "T00:00:00").toLocaleDateString(undefined, { weekday: "short" });
+    
+        const codeText = (code) => {
+          // very small mapping (you can expand later)
+          if (code === 0) return "Clear";
+          if ([1, 2, 3].includes(code)) return "Cloudy";
+          if ([45, 48].includes(code)) return "Fog";
+          if ([51, 53, 55, 56, 57].includes(code)) return "Drizzle";
+          if ([61, 63, 65, 66, 67].includes(code)) return "Rain";
+          if ([71, 73, 75, 77, 85, 86].includes(code)) return "Snow";
+          if ([80, 81, 82].includes(code)) return "Showers";
+          if ([95, 96, 99].includes(code)) return "Thunder";
+          return `Code ${code}`;
+        };
+    
+        grid.innerHTML = days.slice(0, 7).map((d, i) => `
+          <div class="weather-day">
+            <p class="weather-dow">${dow(d)}</p>
+            <p class="weather-temp">
+              <strong>${Math.round(maxT[i])}°</strong> / ${Math.round(minT[i])}°
+            </p>
+            <p class="weather-code">${codeText(codes[i])}</p>
+          </div>
+        `).join("");
+    
+        updatedEl.textContent = `Updated: ${new Date().toLocaleString()}`;
+      } catch (err) {
+        console.error(err);
+        updatedEl.textContent = "Couldn’t load forecast.";
+        grid.innerHTML = "";
+      }
+    }
+    
+    // run on page load
+    loadSLCForecast();
   })();
+
