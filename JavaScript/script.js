@@ -12,6 +12,11 @@
       "images/Johnsonphoto1.jpg",
       "images/Johnsonphoto2.jpg",
       "images/Johnsonphoto3.jpg",
+      "images/Johnsonphoto4.jpg",
+      "images/Johnsonphoto5.jpg",
+      "images/Johnsonphoto6.jpg",
+      "images/Johnsonphoto7.jpg",
+      "images/Johnsonphoto8.jpg"
     ];
   
     let index = 0;
